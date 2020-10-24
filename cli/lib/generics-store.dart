@@ -57,20 +57,33 @@ class MyStore<MyProduct, MyInventory> {
   }
 }
 
+/**
+ * Function's return type(T)
+ */
+T lastItem<T>(List<T> products) {
+  return products.last;
+}
+
 void main() {
   var milk = Product(1, 5.99, 'Milk');
   var bread = Product(2, 4.50, 'Bread');
+  var cheese = Product(3, 6.50, 'Cheese');
 
   //Using single letter names for Generics
   var store1 = Store<Product, Inventory>();
 
+  store1.updateInventory(cheese, Inventory(100));
   store1.updateInventory(milk, Inventory(20));
   store1.updateInventory(bread, Inventory(15));
   store1.printProducts();
 
+  print(lastItem(store1.products));
+
   //Using descriptive names for Generics
-  var store2 = MyStore<Product, Inventory>();
-  store2.updateInventory(milk, Inventory(20));
-  store2.updateInventory(bread, Inventory(15));
-  store2.printProducts();
+  // var store2 = MyStore<Product, Inventory>();
+  // store2.updateInventory(milk, Inventory(20));
+  // store2.updateInventory(bread, Inventory(15));
+  // store2.printProducts();
+
+  // print(lastItem(store1.products));
 }
