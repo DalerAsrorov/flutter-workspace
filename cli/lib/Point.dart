@@ -29,6 +29,14 @@ class Point {
   // convert the class instance to JSON
   Map<String, dynamic> toJson() =>
       {'x': x, 'y': y, 'distance': distanceFromOrigin};
+
+  // instance method
+  double distanceTo(Point other) {
+    var dx = x - other.x;
+    var dy = y - other.y;
+
+    return sqrt(dx * dx + dy * dy);
+  }
 }
 
 class ImmutablePoint {
@@ -46,4 +54,5 @@ void main() {
   print(p1.toJson());
   print(jsonEncode(p1));
   print(p2.toJson());
+  print('Distance from p2 to p1 is ${p2.distanceTo(p1)}');
 }
