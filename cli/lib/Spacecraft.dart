@@ -3,9 +3,7 @@ class Spacecraft {
   DateTime launchDate;
 
   // Constructor, with syntactic sugar for assignment to members.
-  Spacecraft(this.name, this.launchDate) {
-    // Initialization code goes here.
-  }
+  Spacecraft(this.name, this.launchDate);
 
   // Named constructor that forwards to the default one.
   Spacecraft.unlaunched(String name) : this(name, null);
